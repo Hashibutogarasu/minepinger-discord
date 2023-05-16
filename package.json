@@ -11,7 +11,7 @@
         "pretty": "prettier --write \"./**/*.{ts,js,json}\""
     },
     "engines": {
-        "node": ">=20 <21"
+        "node": ">=20.1.0 <21"
     },
     "keywords": [],
     "author": "Jan Plazovnik",
