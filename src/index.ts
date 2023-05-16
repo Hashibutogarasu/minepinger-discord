@@ -6,8 +6,7 @@ import { ICommand, IModal, IButton } from './types/bot-core';
 import { TestCommand, PingCommand, TestButton, TestModal, PingModal } from './interactions/index';
 import { config } from 'dotenv';
 
-const dotenv = require('dotenv');
-dotenv.config({ path: '/etc/secrets/.env' });
+config();
 
 var express = require('express');
 var app = express();
