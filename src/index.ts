@@ -8,6 +8,16 @@ import { config } from 'dotenv';
 
 config();
 
+var express = require('express');
+var app = express();
+
+var server = require('http').createServer(app);
+app.get('/', function (request: any, response: any) {
+    response.json({ status: 'OK' });
+});
+
+server.listen(80);
+
 async function start(): Promise<void> {
     if (!process.env.BOT_TOKEN) {
         Logger.error('BOT_TOKEN is missing. The bot cannot start without it.');
