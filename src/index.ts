@@ -3,9 +3,10 @@ import Bot from './Bot';
 import Logger from './utilities/logger.util';
 import { registerCommands } from './utilities/registration.util';
 import { ICommand, IModal, IButton } from './types/bot-core';
-import TestCommand from './interactions/test/test.command';
-import TestButton from './interactions/test/test.button';
-import TestModal from './interactions/test/test.modal';
+import { TestCommand, PingCommand, TestButton, TestModal, PingModal } from './interactions/index';
+import { config } from 'dotenv';
+
+config();
 
 async function start(): Promise<void> {
     if (!process.env.BOT_TOKEN) {
@@ -17,9 +18,9 @@ async function start(): Promise<void> {
         intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildScheduledEvents],
     });
 
-    const commands: ICommand[] = [TestCommand];
-    const buttons: IButton[] = [TestButton];
-    const modals: IModal[] = [TestModal];
+    const commands: ICommand[] = [PingCommand];
+    const buttons: IButton[] = [];
+    const modals: IModal[] = [PingModal];
 
     const bot = new Bot({
         token: process.env.BOT_TOKEN,
@@ -43,5 +44,9 @@ async function start(): Promise<void> {
 
     await bot.start();
 }
+
+process.on('uncaughtException', function (exception) {
+    // handle or ignore error
+});
 
 start();

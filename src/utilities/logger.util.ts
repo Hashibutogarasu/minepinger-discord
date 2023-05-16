@@ -21,7 +21,10 @@ export default class Logger {
      */
     private static getTimestamp() {
         const d = new Date();
-        return chalk`{gray ${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}:${d.getSeconds().toString().padStart(2, '0')}} `;
+        return chalk`{gray ${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}:${d
+            .getSeconds()
+            .toString()
+            .padStart(2, '0')}} `;
     }
 
     /**

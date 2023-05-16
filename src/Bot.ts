@@ -68,7 +68,7 @@ export default class Bot {
         // Defer the reply if the runner has the ephemeral option set.
         // This is optional because some interactions should not be deferred.
         if (runner.options?.ephemeral !== undefined && 'deferReply' in interaction) {
-            await interaction.deferReply({ ephemeral: runner.options.ephemeral ?? false });
+            await interaction.deferReply({}); // ephemeral: runner.options.ephemeral ?? false
         }
 
         try {
