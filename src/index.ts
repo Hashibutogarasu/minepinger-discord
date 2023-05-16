@@ -5,6 +5,7 @@ import { registerCommands } from './utilities/registration.util';
 import { ICommand, IModal, IButton } from './types/bot-core';
 import { TestCommand, PingCommand, TestButton, TestModal, PingModal } from './interactions/index';
 import { config } from 'dotenv';
+import { boolean } from 'zod';
 
 config();
 
@@ -23,7 +24,6 @@ async function start(): Promise<void> {
         Logger.error('BOT_TOKEN is missing. The bot cannot start without it.');
         return;
     }
-
     const client = new Client({
         intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildScheduledEvents],
     });
